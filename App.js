@@ -78,13 +78,24 @@ export default function App() {
               </TouchableNativeFeedback>
             </View>
           ),
-          headerTitle: "",
-          headerShadowVisible: false,
+        
         })}
       >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Account" component={Account} />
-        <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="Home" component={Home}  options={{title:''}} />
+        <Stack.Screen name="Account" component={Account} options={{
+          title: 'Account',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerRight:() => {<View/>}
+        }}/>
+        <Stack.Screen name="Setting" component={Setting}  options={{
+          title: 'Settings',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerRight:() => {<View/>}
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
