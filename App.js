@@ -17,10 +17,10 @@ import Account from "./components/Account";
 import Setting from "./components/Setting";
 import Icon from "react-native-vector-icons/Ionicons";
 import Home from "./components/Home";
-
 const Stack = createNativeStackNavigator();
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
+
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -78,7 +78,6 @@ export default function App() {
               </TouchableNativeFeedback>
             </View>
           ),
-        
         })}
       >
         <Stack.Screen name="Home" component={Home}  options={{title:''}} />
