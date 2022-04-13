@@ -14,9 +14,8 @@ const Tab = createMaterialBottomTabNavigator();
 export default function Home() {
   return (
     <Tab.Navigator
-      barStyle={{ backgroundColor: "white", paddingBottom: 10 }}
+      barStyle={{ backgroundColor: "white", paddingBottom: 7,size:24 }}
       shifting={false}
-
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -35,7 +34,7 @@ export default function Home() {
           return (
               <Icon
                 name={iconName}
-                size={focused ? 26 : 25}
+                size={focused ? 25 : 24}
                 color={focused ? "red" : color}
               />
           );
@@ -43,11 +42,28 @@ export default function Home() {
         
       })}
     >
-      <Tab.Screen name="Listen Now" component={Listen} />
-      <Tab.Screen name="Browse" component={Browse} />
-      <Tab.Screen name="Radio" component={Radio} />
-      <Tab.Screen name="Library" component={Library} />
-      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Listen Now" component={Listen}  options={{
+      tabBarLabel: <Text style={styles.tabBarLabel}>Home</Text>
+    }} />
+      <Tab.Screen name="Browse" component={Browse} options={{
+      tabBarLabel: <Text style={styles.tabBarLabel}>Browse</Text>
+    }} />
+      <Tab.Screen name="Radio" component={Radio} options={{
+      tabBarLabel: <Text style={styles.tabBarLabel}>Radio</Text>
+    }} />
+      <Tab.Screen name="Library" component={Library} options={{
+      tabBarLabel: <Text style={styles.tabBarLabel}>Library</Text>
+    }}/>
+      <Tab.Screen name="Search" component={Search} options={{
+      tabBarLabel: <Text style={styles.tabBarLabel}>Search</Text>
+    }} />
     </Tab.Navigator>
   );
 }
+const styles = StyleSheet.create({
+  tabBarLabel: {
+    fontSize: 15,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
